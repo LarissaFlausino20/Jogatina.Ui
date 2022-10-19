@@ -1,0 +1,82 @@
+package testes;
+
+import org.junit.Test;
+import org.openqa.selenium.By;
+import metodos.Metodos;
+
+public class LoginTeste {
+
+	Metodos metodos = new Metodos();
+
+	By btnEntrar = By.xpath("//input[@value='Entrar']");
+	By email = By.id("email");
+	By senha = By.id("password");
+	By btnEntrar2 = By.id("login");
+	By jogarAgora = By.xpath("//a[@class='btn btn-amarelo']");
+
+	@Test
+	public void entrar() {
+
+		metodos.acessarSite();
+		metodos.submit(btnEntrar);
+		metodos.escrever(email, "dulce3486@uorak.com");
+		metodos.escrever(senha, "26122902");
+		metodos.pause(2000);
+		metodos.submit(btnEntrar2);
+		metodos.clicarPorTexto(jogarAgora);
+		metodos.fecharNavegador();
+	}
+
+	@Test
+	public void senhaInvalida() {
+
+		metodos.acessarSite();
+		metodos.submit(btnEntrar);
+		metodos.escrever(email, "dulce3486@uorak.com");
+		metodos.escrever(senha, "123456789");
+		metodos.pause(2000);
+		metodos.submit(btnEntrar2);
+		metodos.fecharNavegador();
+
+	}
+
+	@Test
+	public void emailInvalido() {
+		metodos.acessarSite();
+		metodos.submit(btnEntrar);
+		metodos.escrever(email, "dulce3555@uorak.com");
+		metodos.escrever(senha, "26122902");
+		metodos.pause(2000);
+		metodos.submit(btnEntrar2);
+		metodos.fecharNavegador();
+	}
+
+	@Test
+	public void dadosEmBranco() {
+
+		metodos.acessarSite();
+		metodos.submit(btnEntrar);
+		metodos.escrever(email, "");
+		metodos.escrever(senha, "");
+		metodos.pause(2000);
+		metodos.submit(btnEntrar2);
+		metodos.pause(2000);
+		metodos.fecharNavegador();
+
+	}
+
+	@Test
+	public void clearEmail() {
+		metodos.acessarSite();
+		metodos.submit(btnEntrar);
+		metodos.escrever(email, "dulce3486@uorak.com");
+		metodos.pause(5000);
+		metodos.clear(email);
+		metodos.pause(5000);
+		metodos.escrever(email, "dulce3486@uorak.com");
+		metodos.escrever(senha, "26122902");
+		metodos.submit(btnEntrar2);
+		metodos.fecharNavegador();
+	}
+
+}
