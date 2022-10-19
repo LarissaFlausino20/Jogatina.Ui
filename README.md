@@ -5,7 +5,7 @@ Foi realizado a automação de 5 Casos de Testes, utilizando Selenium WebDriver 
 
 Foi criado 2 classes dentro de scr/teste/resources
 
-1 METODOS
-2 TESTES
+1 classe Metodos 1 Package Metodos
+1 classe Testes 1 Package LoginTeste
 
 Foi criado um folder na raiz do projeto pra colocar o chromedriver 
